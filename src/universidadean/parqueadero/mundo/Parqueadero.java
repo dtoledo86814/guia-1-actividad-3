@@ -265,8 +265,12 @@ public class Parqueadero {
      * Avanza una hora en el parqueadero.
      * Si la hora actual es igual a la hora de cierre, el parqueadero se cierra.
      */
-    public void avanzarHora() {
-        horaActual++;
+    public int avanzarHora() {
+        //modifico en metodo para que la hora avance de 0 a 24 indicando abierto solo en el horario apropiado
+        if(horaActual == 24){
+            horaActual = 0;
+        }else{horaActual++;}
+        return horaActual;
     }
 
     /**
@@ -275,6 +279,7 @@ public class Parqueadero {
      * @return La hora actual en el parqueadero.
      */
     public int darHoraActual() {
+
         return horaActual;
     }
 
@@ -283,7 +288,10 @@ public class Parqueadero {
      *
      * @return Retorna true si el parqueadero est? abierto. False en caso contrario.
      */
-    public boolean estaAbierto() {
+    public boolean estaAbierto(int horaActual) {
+        if(horaActual<21 && horaActual >= 6 ) {
+            abierto = true;
+        }else {abierto = false;}
         return abierto;
     }
 
