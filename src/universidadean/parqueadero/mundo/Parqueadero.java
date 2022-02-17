@@ -349,7 +349,18 @@ public class Parqueadero {
      * @return Respuesta 2.
      */
     public String metodo2() {
-        return "respuesta 2";
+        int puestosOcupados = 0;
+        for(Puesto puesto : puestos){
+            if (puesto.estaOcupado()){
+                puestosOcupados ++;
+            }
+        }
+        if(puestosOcupados >= 40){
+            return "El parqueadero está lleno";
+        }else{
+            return "Hay puestos disponibles";
+        }
+
     }
 
 }
