@@ -267,6 +267,7 @@ public class Parqueadero {
      */
     public int avanzarHora() {
         //modifico en metodo para que la hora avance de 0 a 24 indicando abierto solo en el horario apropiado
+        estaAbierto();
         if(horaActual == 24){
             horaActual = 0;
         }else{horaActual++;}
@@ -288,10 +289,12 @@ public class Parqueadero {
      *
      * @return Retorna true si el parqueadero est? abierto. False en caso contrario.
      */
-    public boolean estaAbierto(int horaActual) {
-        if(horaActual<21 && horaActual >= 6 ) {
+    public boolean estaAbierto() {
+        if(horaActual<21 && horaActual >= 6) {
             abierto = true;
-        }else {abierto = false;}
+        }else {
+            abierto = false;
+        }
         return abierto;
     }
 
